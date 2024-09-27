@@ -1,0 +1,14 @@
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: rook-cluster-app
+# spec:
+#   destination:
+#     server: 'https://kubernetes.default.svc'
+#   source:
+#     path: rook-cluster/overlays/test
+#     repoURL: 'https://github.com/ywy50/k8s-infra'
+#     targetRevision: dev
+#   project: default
+# # #   # syncPolicy:
+# # #   #   syncOptions:

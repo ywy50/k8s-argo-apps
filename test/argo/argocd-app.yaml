@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-app
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: argo/argo-cd/overlays/test
+    repoURL: 'https://github.com/ywy50/k8s-infra'
+    targetRevision: dev
+  project: default
+#   syncPolicy:
+#     syncOptions:
+#     # automated: {}
