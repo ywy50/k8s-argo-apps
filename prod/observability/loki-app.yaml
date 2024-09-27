@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: loki
+spec:
+  destination:
+    namespace: observability
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: observability/loki/overlays/prod
+    repoURL: 'https://github.com/ywy50/k8s-infra'
+    targetRevision: main
+  project: observability
+  # syncPolicy:
+  #   syncOptions:
+  #   - ServerSideApply=true

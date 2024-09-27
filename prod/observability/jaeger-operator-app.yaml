@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jaeger-operator-app
+spec:
+  destination:
+    namespace: observability
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: observability/jaeger-operator/overlays/prod
+    repoURL: 'https://github.com/ywy50/k8s-infra'
+    targetRevision: main
+  sources: []
+  project: observability
+# #   # syncPolicy:
+# #   #   syncOptions:

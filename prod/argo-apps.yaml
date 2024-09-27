@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-apps
+spec:
+  destination:
+    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: prod/argo
+    repoURL: 'https://github.com/ywy50/k8s-argo-apps'
+    targetRevision: main
+    directory:
+      recurse: true
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+    automated: {}
